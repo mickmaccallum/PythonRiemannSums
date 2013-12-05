@@ -28,11 +28,11 @@ def trapezoidRiemann(f,a,b,n,h):
 	return t
 
 
-f = lambda x:3*x**3-5*x
+f = lambda x:5*x
 
 a = 0.0
 b = 100.0
-n = 20000
+n = 250000
 h = (b - a) / float(n)
 
 start = time.time()
