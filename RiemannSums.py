@@ -30,7 +30,7 @@ def middleRiemann(f,a,n,h):
 def trapezoidRiemann(f,a,b,n,h):
 	
 	s = f(a) + f(b)
-
+	
 	t = sum((f(i * h + a)) for i in xrange(1, n))
 	t *= 2.0
 	t += s
@@ -40,11 +40,11 @@ def trapezoidRiemann(f,a,b,n,h):
 	return t
 
 
-f = lambda x:5*x
+f = lambda x:3*x**3-5*x
 
 a = 0.0
 b = 100.0
-n = 20000
+n = 2000
 h = (b - a) / float(n)
 
 start = time.time()
