@@ -1,6 +1,4 @@
 import time
-import parser
-import math
 
 def leftRiemann(f,a,n,h):
 		
