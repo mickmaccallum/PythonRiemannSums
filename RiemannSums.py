@@ -31,7 +31,9 @@ def trapezoidRiemann(f,a,b,n,h):
 	
 	s = f(a) + f(b)
 
-	t = sum((2.0 * f(i * h + a)) for i in xrange(1, n)) + s
+	t = sum((f(i * h + a)) for i in xrange(1, n))
+	t *= 2.0
+	t += s
 
 	t *= (h * 0.5)
 
@@ -42,7 +44,7 @@ f = lambda x:5*x
 
 a = 0.0
 b = 100.0
-n = 250000
+n = 20000
 h = (b - a) / float(n)
 
 start = time.time()
@@ -53,4 +55,4 @@ middle = middleRiemann(f, a, n, h)
 trap = trapezoidRiemann(f, a, b, n, h)
 
 print "Total calculation time: ", time.time() - start
-print "Left value:", left, "Right: ", right, "Middle: ", middle, "Trapezoidal", trap
+print "Left value:",left    , "Right:",right    , "Middle:",middle    , "Trapezoidal",trap
