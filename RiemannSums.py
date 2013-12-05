@@ -51,8 +51,8 @@ print "Open throttle"
 
 f = lambda x:((x)**4)-(5*(x)**2)
 
-a = -8.0
-b = 17.0
+a = 0.0
+b = 50.0
 n = 20000.0
 h = (b-a)/n
 
