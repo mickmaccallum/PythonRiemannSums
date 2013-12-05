@@ -4,11 +4,6 @@ def leftRiemann(f,a,n,h):
 		
 	t = sum((f(i * h + a)) for i in xrange(n))
 
-	
-	# for i in xrange(n):
-	# 	x = a + i * h
-	# 	t += f(x)
-		
 	t *= h
 
 	return t
