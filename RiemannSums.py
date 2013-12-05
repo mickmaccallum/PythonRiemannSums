@@ -49,14 +49,6 @@ def trapezoidRieman(f,a,b,n,h):
 
 	return sum
 
-
-
-# formula = "5*x**5+12*x**3"
-# code = parser.expr(formula).compile()
-
-# x = 10
-# print eval(code)
-
 print "Open throttle"
 
 f = lambda x:((x)**4)-(5*(x)**2)
@@ -74,12 +66,3 @@ print "Middle Sum:", middleRiemann(f, a, n, h)
 print "Trapezoidal Sum:", trapezoidRieman(f, a, b, n, h)
 
 print "Time taken to calculate: ", time.time() - start
-
-
-
-
-
-
-
-
-
