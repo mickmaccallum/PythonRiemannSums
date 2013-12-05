@@ -4,7 +4,7 @@ def leftRiemann(f,a,n,h):
 		
 	sum = 0.0	
 	
-	for i in range(int(n)):
+	for i in xrange(n):
 		x = a + i * h
 		sum += f(x)
 		
@@ -17,7 +17,7 @@ def rightRiemann(f,a,n,h):
 	
 	sum = 0.0	
 
-	for i in xrange(1,int(n)+1):
+	for i in xrange(1, n + 1):
 		x = a + i * h
 		sum += f(x)
 	sum *= h
@@ -27,40 +27,39 @@ def rightRiemann(f,a,n,h):
 def middleRiemann(f,a,n,h):
 
 	sum = 0.0
-	add = h / 2.0 + a
+	add = h * 0.5 + a
 
-	for i in xrange(int(n)):
+	for i in xrange(n):
 		x = i * h + add
 		sum += f(x)
 	sum *= h
 
 	return sum
 
-def trapezoidRieman(f,a,b,n,h):
+def trapezoidRiemann(f,a,b,n,h):
 	
 	sum = f(a) + f(b)
 
-	for i in xrange(1,int(n)):
+	for i in xrange(1, n):
 		x = i * h + a
 		sum += (f(x) * 2.0)
 	sum *= (h * 0.5)
 
 	return sum
 
-print "Open throttle"
-
-f = lambda x:((x)**4)-(5*(x)**2)
+f = lambda x:5*x
 
 a = 0.0
-b = 50.0
-n = 20000.0
-h = (b-a)/n
+b = 100.0
+n = 20000
+h = (b - a) / float(n)
 
 start = time.time()
 
-print "Left Sum:", leftRiemann(f, a, n, h)
-print "Right Sum:", rightRiemann(f, a, n, h)
-print "Middle Sum:", middleRiemann(f, a, n, h)
-print "Trapezoidal Sum:", trapezoidRieman(f, a, b, n, h)
+left = leftRiemann(f, a, n, h)
+right = rightRiemann(f, a, n, h)
+middle = middleRiemann(f, a, n, h)
+trap = trapezoidRiemann(f, a, b, n, h)
 
-print "Time taken to calculate: ", time.time() - start
+print "Total calculation time: ", time.time() - start
+print "Left value:", left, "Right: ", right, "Middle: ", middle, "Trapezoidal", trap
