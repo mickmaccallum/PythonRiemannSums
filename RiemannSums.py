@@ -32,15 +32,16 @@ f = lambda x:5*x
 
 a = 0.0
 b = 100.0
-n = 250000
+n = 20000
 h = (b - a) / float(n)
 
 start = time.time()
 
 left = leftRiemann(f, a, n, h)
-right = rightRiemann(f, a, n, h)
-middle = middleRiemann(f, a, n, h)
-trap = trapezoidRiemann(f, a, b, n, h)
+# right = rightRiemann(f, a, n, h)
+# middle = middleRiemann(f, a, n, h)
+# trap = trapezoidRiemann(f, a, b, n, h)
 
 print "Total calculation time: ", time.time() - start
-print "Left value:",left    , "Right:",right    , "Middle:",middle    , "Trapezoidal",trap
+print left
+# print "Left value:",left    , "Right:",right    , "Middle:",middle    , "Trapezoidal",trap
