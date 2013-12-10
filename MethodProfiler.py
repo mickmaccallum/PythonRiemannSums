@@ -28,7 +28,7 @@ def n_right_incrementer():
 	return sum((f(i * h + a)) for i in xrange(1, n + 1)) * h
 
 def h_right_incrementer():
-	pass
+	
 
 def run_profiler_loops_1():
 	t1 = 0.0
