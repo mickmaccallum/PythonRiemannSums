@@ -1,4 +1,5 @@
-import time
+from time import time
+from math import fabs
 
 r = 100.0
 
@@ -29,22 +30,29 @@ def profile_left_summation():
 	t2 = 0.0
 
 	for i in xrange(int(r)):
-		s = time.time()
+		s = time()
 		l = n_left_incrementer(f,a,n,h)
-		t1 += time.time() - s
+		t1 += time() - s
 
 	for i in xrange(int(r)):
-		s = time.time()
+		s = time()
 		l = h_left_incrementer(f,a,b,n,h)
-		t2 += time.time() - s
+		t2 += time() - s
 
 	t1 /= r
 	t2 /= r
 
-	with open("ProfilerOutput.txt", "w") as text_file:
-    		text_file.write(("n_left_incrementer: %s" % t1) + "\n")
-    		text_file.write(("h_left_incrementer: %s" % t2) + "\n")
+	line = "\n"
 
+	txt = open("ProfilerOutput.txt", "w")
+
+	print >> txt, time()
+	print >> txt, "Left Sum Times" + line
+	print >> txt, ("n_left_incrementer: %s" % t1)
+	print >> txt, ("h_left_incrementer: %s" % t2) + line
+	print >> txt, ("Difference: %s" % fabs(t1 - t2))
+
+	txt.close()
 
 
 

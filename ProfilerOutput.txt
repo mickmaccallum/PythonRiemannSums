@@ -1,2 +1,7 @@
-n_left_incrementer: 0.00757806301117
-h_left_incrementer: 0.00755431175232
+1386639976.96
+Left Sum Times
+
+n_left_incrementer: 0.00737902641296
+h_left_incrementer: 0.00756199359894
+
+Difference: 0.000182967185974

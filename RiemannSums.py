@@ -50,7 +50,7 @@ left = left_riemann(f, a, n, h)
 # trap = trapezoid_riemann(f, a, b, n, h)
 total = 0.0
 
-for i in xrange(10):
+for i in xrange(10000):
 	start = time.time()
 	left = left_riemann(f, a, n, h)
 	total += (time.time() - start)
