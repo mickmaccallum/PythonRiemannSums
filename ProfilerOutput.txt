@@ -1,7 +1,7 @@
-1386639976.96
+1386678685.36
 Left Sum Times
 
-n_left_incrementer: 0.00737902641296
-h_left_incrementer: 0.00756199359894
+n_left_incrementer: 0.00761012554169
+h_left_incrementer: 0.00726040840149
 
-Difference: 0.000182967185974
+Difference: 0.000349717140198

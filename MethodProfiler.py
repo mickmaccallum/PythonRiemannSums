@@ -24,20 +24,33 @@ def h_left_incrementer(f,a,b,n,h):
 
 	return total * h	
 
-def profile_left_summation():
+def n_right_incrementer():
+	return sum((f(i * h + a)) for i in xrange(1, n + 1)) * h
 
+def h_right_incrementer():
+	pass
+
+def run_profiler_loops_1():
 	t1 = 0.0
-	t2 = 0.0
-
 	for i in xrange(int(r)):
 		s = time()
 		l = n_left_incrementer(f,a,n,h)
 		t1 += time() - s
+	return t1
 
+def run_profiler_loops_2():
+	t2 = 0.0
 	for i in xrange(int(r)):
 		s = time()
 		l = h_left_incrementer(f,a,b,n,h)
 		t2 += time() - s
+	return t2
+	
+
+def profile_left_summation():
+
+	t1 = run_profiler_loops_1()
+	t2 = run_profiler_loops_2()
 
 	t1 /= r
 	t2 /= r
