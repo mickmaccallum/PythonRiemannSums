@@ -1,14 +1,6 @@
 import time
 
 def left_riemann(f,a,n,h):
-		# print h		
-		# s = 0.0
-		# for i in xrange(n):
-		# 	g = f(i * h + a)
-		# 	print g
-		# 	s += g
-		# s *= h
-		# return s	
 	return sum((f(i * h + a)) for i in xrange(n)) * h
 	
 	
@@ -45,20 +37,10 @@ h = (b - a) / float(n)
 start = time.time()
 
 left = left_riemann(f, a, n, h)
-# right = right_riemann(f, a, n, h)
-# middle = middle_riemann(f, a, n, h)
-# trap = trapezoid_riemann(f, a, b, n, h)
-total = 0.0
+right = right_riemann(f, a, n, h)
+middle = middle_riemann(f, a, n, h)
+trap = trapezoid_riemann(f, a, b, n, h)
 
-for i in xrange(10000):
-	start = time.time()
-	left = left_riemann(f, a, n, h)
-	total += (time.time() - start)
 
-total /= 10.0
-
-print("%.15f") % (total)
-
-# print "Total calculation time: ", time.time() - start
-# print left
-# print "Left value:",left    , "Right:",right    , "Middle:",middle    , "Trapezoidal",trap
+print "Total calculation time: ", time.time() - start
+print "Left value:",left    , "Right:",right    , "Middle:",middle    , "Trapezoidal",trap
