@@ -37,13 +37,29 @@ def h_right_incrementer(f,a,b,n,h):
 		i += h
 	return total * h
 
+def n_middle_incrementer(f,a,n,h):
+	pass
+
+def h_middle_incrementer(f,a,b,n,h):
+	pass
+
+def n_trapezoid_incrementer(f,a,n,h):
+	pass
+
+def h_trapezoid_incrementer(f,a,b,n,h):
+	pass
 
 def startProfiling():
 	print n_left_incrementer(f,a,n,h)
 	print h_left_incrementer(f,a,b,n,h)
+	
 	print n_right_incrementer(f,a,n,h)
 	print h_right_incrementer(f,a,b,n,h)
 
-# startProfiling()
+	print n_middle_incrementer(f,a,h,n)
+	print h_middle_incrementer(f,a,b,n,h)
+
+	print n_trapezoid_incrementer(f,a,n,h)
+	print h_trapezoid_incrementer(f,a,b,n,h)
 
 cProfile.run('startProfiling()')
