@@ -2,8 +2,6 @@ from time import time
 from math import fabs
 import cProfile
 
-r = 100.0
-
 a = -3.0
 b = 100.0
 n = 20000
@@ -25,15 +23,27 @@ def h_left_incrementer(f,a,b,n,h):
 
 	return total * h	
 
-def n_right_incrementer():
+def n_right_incrementer(f,a,n,h):
 	return sum((f(i * h + a)) for i in xrange(1, n + 1)) * h
 
+def h_right_incrementer(f,a,b,n,h):
+	i = a + h
+	g = b + h
 
+	total = 0.0
+
+	while i <= g:
+		total += f(i)
+		i += h
+	return total * h
 
 
 def startProfiling():
-	n_left_incrementer(f,a,n,h)
-	h_left_incrementer(f,a,b,n,h)
+	print n_left_incrementer(f,a,n,h)
+	print h_left_incrementer(f,a,b,n,h)
+	print n_right_incrementer(f,a,n,h)
+	print h_right_incrementer(f,a,b,n,h)
 
+# startProfiling()
 
-var = cProfile.run('startProfiling()')
+cProfile.run('startProfiling()')
