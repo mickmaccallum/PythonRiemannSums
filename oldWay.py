@@ -23,16 +23,3 @@ def right_sum():
 
 
 f = lambda x:5*x
-
-
-
-total = 0.0
-
-for i in xrange(10000):
-	start = time.time()
-	left = right_sum(f,-3.0,100.0,20000.0)
-	total += (time.time() - start)
-
-total /= 10.0
-
-print("%.15f") % (total)
