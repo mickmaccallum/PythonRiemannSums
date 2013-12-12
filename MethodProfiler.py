@@ -2,7 +2,7 @@ from time import time
 from math import fabs
 import cProfile
 
-a = -3.0
+a = 3.0
 b = 100.0
 n = 20000
 
@@ -42,7 +42,17 @@ def n_middle_incrementer(f,a,n,h):
 	return sum((f(i * h + add)) for i in xrange(n)) * h
 
 def h_middle_incrementer(f,a,b,n,h):
-	pass
+	q = h / 2.0
+	i = a + q
+
+	total = 0.0
+
+	while i <= b:
+		total += f(i)
+		i += h
+
+	return total * h
+		
 
 def n_trapezoid_incrementer(f,a,n,h):
 	s = f(a) + f(b)
@@ -60,16 +70,16 @@ def h_trapezoid_incrementer(f,a,b,n,h):
 	pass
 
 def startProfiling():
-	print n_left_incrementer(f,a,n,h)
-	print h_left_incrementer(f,a,b,n,h)
+	# print n_left_incrementer(f,a,n,h)
+	# print h_left_incrementer(f,a,b,n,h)
 	
-	print n_right_incrementer(f,a,n,h)
-	print h_right_incrementer(f,a,b,n,h)
+	# print n_right_incrementer(f,a,n,h)
+	# print h_right_incrementer(f,a,b,n,h)
 
 	print n_middle_incrementer(f,a,n,h)
 	print h_middle_incrementer(f,a,b,n,h)
 
-	print n_trapezoid_incrementer(f,a,n,h)
-	print h_trapezoid_incrementer(f,a,b,n,h)
+	# print n_trapezoid_incrementer(f,a,n,h)
+	# print h_trapezoid_incrementer(f,a,b,n,h)
 
 cProfile.run('startProfiling()')
