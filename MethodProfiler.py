@@ -38,13 +38,23 @@ def h_right_incrementer(f,a,b,n,h):
 	return total * h
 
 def n_middle_incrementer(f,a,n,h):
-	pass
+	add = h * 0.5 + a
+	return sum((f(i * h + add)) for i in xrange(n)) * h
 
 def h_middle_incrementer(f,a,b,n,h):
 	pass
 
 def n_trapezoid_incrementer(f,a,n,h):
-	pass
+	s = f(a) + f(b)
+	
+	t = sum((f(i * h + a)) for i in xrange(1, n))
+	t *= 2.0
+	t += s
+
+	t *= (h * 0.5)
+
+	return t
+
 
 def h_trapezoid_incrementer(f,a,b,n,h):
 	pass
@@ -56,7 +66,7 @@ def startProfiling():
 	print n_right_incrementer(f,a,n,h)
 	print h_right_incrementer(f,a,b,n,h)
 
-	print n_middle_incrementer(f,a,h,n)
+	print n_middle_incrementer(f,a,n,h)
 	print h_middle_incrementer(f,a,b,n,h)
 
 	print n_trapezoid_incrementer(f,a,n,h)
