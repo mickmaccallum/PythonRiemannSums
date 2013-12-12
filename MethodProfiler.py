@@ -67,19 +67,29 @@ def n_trapezoid_incrementer(f,a,n,h):
 
 
 def h_trapezoid_incrementer(f,a,b,n,h):
-	pass
+	
+	total = f(a) + f(b)
+
+	i = a
+
+	while i <= b:
+		total += 2.0 * f(a + (i * h))
+		i += h
+
+	return total * (h / 2.0)
+
 
 def startProfiling():
-	# print n_left_incrementer(f,a,n,h)
-	# print h_left_incrementer(f,a,b,n,h)
+	print n_left_incrementer(f,a,n,h)
+	print h_left_incrementer(f,a,b,n,h)
 	
-	# print n_right_incrementer(f,a,n,h)
-	# print h_right_incrementer(f,a,b,n,h)
+	print n_right_incrementer(f,a,n,h)
+	print h_right_incrementer(f,a,b,n,h)
 
 	print n_middle_incrementer(f,a,n,h)
 	print h_middle_incrementer(f,a,b,n,h)
 
-	# print n_trapezoid_incrementer(f,a,n,h)
-	# print h_trapezoid_incrementer(f,a,b,n,h)
+	print n_trapezoid_incrementer(f,a,n,h)
+ 	print h_trapezoid_incrementer(f,a,b,n,h)
 
 cProfile.run('startProfiling()')
