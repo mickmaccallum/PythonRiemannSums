@@ -11,13 +11,13 @@ def left_sum(f,a,b,n):
 
 	return total * h	
 
-def right_sum():
+def right_sum(f,a,b,n):
 	h = (b - a)
 	i = a
 	total = 0.0
 
 	while i < b:
-		total += f(in)
+		total += f(i)
 		i += h
 	return total * h
 
