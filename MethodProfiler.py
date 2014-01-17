@@ -2,13 +2,13 @@ from time import time
 from math import fabs
 import cProfile
 
-a = 3.0
-b = 100.0
-n = 20000
+a = 5.0
+b = 10.0
+n = 100
 
 h = (b - a) / float(n)
 
-f = lambda x:5*x
+f = lambda x:x**2
 
 def n_left_incrementer(f,a,n,h):
 	return sum((f(i * h + a)) for i in xrange(n)) * h
@@ -72,9 +72,11 @@ def h_trapezoid_incrementer(f,a,b,n,h):
 
 	i = a
 
-	while i <= b:
-		total += 2.0 * f(a + (i * h))
+	c = 1
+	while i <= b - h:
+		total += 2.0 * f(a + (c * h))
 		i += h
+		c += 1
 
 	return total * (h / 2.0)
 
